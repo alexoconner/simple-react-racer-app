@@ -4,6 +4,7 @@
 'use strict';
 
 var React = require('react-native');
+var Button = require('../components/button');
 
 var {
     AppRegistry,
@@ -18,6 +19,9 @@ class HomeView extends Component {
         return (
             <View style={ styles.container }>
                 <Text style={ styles.welcome }>Welcome Racer!</Text>
+                <Button
+                    title="Start"
+                />
             </View>
         );
     }
@@ -33,7 +37,8 @@ var styles = StyleSheet.create({
     welcome: {
         fontSize: 20,
         textAlign: 'center',
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        marginBottom: 20
     }
 });
 

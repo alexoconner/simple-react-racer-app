@@ -4,8 +4,12 @@
  */
 'use strict';
 
+// react native
 var React = require('react-native');
+
+// views
 var HomeView = require('./js/views/homeView.js');
+
 var {
     AppRegistry,
     StyleSheet,
