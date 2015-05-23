@@ -17,12 +17,56 @@ var {
     View,
 } = React;
 
-var SimpleRacerApp = React.createClass({
-    render: function() {
+class SimpleRacerApp {
+    constructor() {
+        this.state = {
+            view: 'home'
+        }
+    }
+
+    render() {
+
+        var view;
+
+        switch (this.state.view) {
+            case 'home':
+                view = (
+                    <HomeView />
+                );
+                break;
+            case 'race':
+                view = (
+                    <Text>
+                        This is a test for the race view
+                    </Text>
+                );
+                break;
+            default:
+                view = (
+                    <HomeView />
+                );
+        }
+
         return (
-            <HomeView />
+            <View style={ styles.main }>
+                { view }
+            </View>
         );
     }
+}
+
+var styles = StyleSheet.create({
+    main: {
+        flex: 1
+    }
 });
+
+//var SimpleRacerApp = React.createClass({
+//    render: function() {
+//        return (
+//            <HomeView />
+//        );
+//    }
+//});
 
 AppRegistry.registerComponent('SimpleRacerApp', () => SimpleRacerApp);

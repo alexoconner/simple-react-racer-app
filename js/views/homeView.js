@@ -20,8 +20,6 @@ class HomeView extends Component {
             buttonStart: 'Start'
         };
 
-        console.log('dsssdsa');
-
         this.onStartClick = this.onStartClick.bind(this);
     }
 
