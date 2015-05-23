@@ -5,15 +5,18 @@ var React = require('react-native');
 var {
     StyleSheet,
     View,
-    Text
+    Text,
+    TouchableOpacity
 } = React;
 
 class Button {
     render() {
         return (
-            <View style={[ styles.button, this.props.buttonStyle ]}>
-                <Text style={[styles.text, this.props.textStyle ]}>{ this.props.title }</Text>
-            </View>
+            <TouchableOpacity onPress={ this.props.onPress }>
+                <View style={[ styles.button, this.props.buttonStyle ]}>
+                    <Text style={[styles.text, this.props.textStyle ]}>{ this.props.title }</Text>
+                </View>
+            </TouchableOpacity>
         );
     }
 };

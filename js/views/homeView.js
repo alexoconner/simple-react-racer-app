@@ -15,12 +15,31 @@ var {
 } = React;
 
 class HomeView extends Component {
+    constructor() {
+        this.state = {
+            buttonStart: 'Start'
+        };
+
+        console.log('dsssdsa');
+
+        this.onStartClick = this.onStartClick.bind(this);
+    }
+
+    onStartClick() {
+        console.log('button clicked');
+
+        this.setState({
+            buttonStart: 'started'
+        })
+    }
+
     render() {
         return (
             <View style={ styles.container }>
                 <Text style={ styles.welcome }>Welcome Racer!</Text>
                 <Button
-                    title="Start"
+                    onPress={ this.onStartClick }
+                    title={ this.state.buttonStart }
                 />
             </View>
         );
