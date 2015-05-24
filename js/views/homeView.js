@@ -3,8 +3,15 @@
  */
 'use strict';
 
+// components
 var React = require('react-native');
 var Button = require('../components/button');
+
+// constants
+var APP = require('../constants/appConfig');
+
+// dispatcher
+var AppDispatcher = require('../dispatchers/appDispatcher');
 
 var {
     AppRegistry,
@@ -25,6 +32,11 @@ class HomeView extends Component {
 
     onStartClick() {
         console.log('button clicked');
+
+        var payload = {
+            actionType: APP.VIEW_CHANGE
+        };
+        AppDispatcher.dispatchView(payload);
 
         this.setState({
             buttonStart: 'started'

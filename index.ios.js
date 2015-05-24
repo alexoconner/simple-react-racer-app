@@ -7,8 +7,14 @@
 // react native
 var React = require('react-native');
 
+// constants
+var APP = require('./js/constants/appConfig');
+
 // views
-var HomeView = require('./js/views/homeView.js');
+var HomeView = require('./js/views/homeView');
+
+// dispatcher
+var AppDispatcher = require('./js/dispatchers/appDispatcher');
 
 var {
     AppRegistry,
