@@ -21,40 +21,24 @@ var {
     StyleSheet,
     Text,
     View,
+    Component
 } = React;
 
-class SimpleRacerApp {
+class SimpleRacerApp extends Component {
     constructor() {
         this.state = {
             view: 'home'
         };
 
         this.viewDispatcher();
-        //this.updateView('home');
-        //this.updateView = this.updateView.bind(this);
-
-    }
-
-    componentDidMount() {
-        //this.updateView('home');
-    }
-
-    updateView(view) {
-        console.log(view);
-        this.setState({
-            view: view
-        });
-        console.log('successfully logged test function');
     }
 
     viewDispatcher() {
         AppDispatcher.register( (payload) => {
             if ( payload.action === APP.VIEW_CHANGE ) {
-                //this.setState({
-                //    view: payload.view
-                //}).bind(this);
-                this.updateView('home').bind(this);
-                console.log('registered click');
+                this.setState({
+                    view: payload.view
+                });
             }
         });
     }
