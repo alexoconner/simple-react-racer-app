@@ -24,7 +24,7 @@ var {
 class HomeView extends Component {
     constructor() {
         this.state = {
-            buttonStart: 'Start'
+            buttonStart: 'PLAY'
         };
 
         this.onStartClick = this.onStartClick.bind(this);
@@ -33,14 +33,14 @@ class HomeView extends Component {
     onStartClick() {
         console.log('button clicked');
 
-        var payload = {
-            actionType: APP.VIEW_CHANGE
-        };
-        AppDispatcher.dispatchView(payload);
+        AppDispatcher.dispatch({
+            action: APP.VIEW_CHANGE,
+            view: 'play'
+        });
 
         this.setState({
             buttonStart: 'started'
-        })
+        });
     }
 
     render() {

@@ -27,7 +27,36 @@ class SimpleRacerApp {
     constructor() {
         this.state = {
             view: 'home'
-        }
+        };
+
+        this.viewDispatcher();
+        //this.updateView('home');
+        //this.updateView = this.updateView.bind(this);
+
+    }
+
+    componentDidMount() {
+        //this.updateView('home');
+    }
+
+    updateView(view) {
+        console.log(view);
+        this.setState({
+            view: view
+        });
+        console.log('successfully logged test function');
+    }
+
+    viewDispatcher() {
+        AppDispatcher.register( (payload) => {
+            if ( payload.action === APP.VIEW_CHANGE ) {
+                //this.setState({
+                //    view: payload.view
+                //}).bind(this);
+                this.updateView('home').bind(this);
+                console.log('registered click');
+            }
+        });
     }
 
     render() {
@@ -40,10 +69,10 @@ class SimpleRacerApp {
                     <HomeView />
                 );
                 break;
-            case 'race':
+            case 'play':
                 view = (
                     <Text>
-                        This is a test for the race view
+                        This is a test for the play view
                     </Text>
                 );
                 break;
@@ -67,12 +96,5 @@ var styles = StyleSheet.create({
     }
 });
 
-//var SimpleRacerApp = React.createClass({
-//    render: function() {
-//        return (
-//            <HomeView />
-//        );
-//    }
-//});
 
 AppRegistry.registerComponent('SimpleRacerApp', () => SimpleRacerApp);
