@@ -12,6 +12,7 @@ var APP = require('./js/constants/appConfig');
 
 // views
 var HomeView = require('./js/views/homeView');
+var PlayView = require('./js/views/playView');
 
 // dispatcher
 var AppDispatcher = require('./js/dispatchers/appDispatcher');
@@ -27,7 +28,7 @@ var {
 class SimpleRacerApp extends Component {
     constructor() {
         this.state = {
-            view: 'home'
+            view: 'play'
         };
 
         this.viewDispatcher();
@@ -55,9 +56,7 @@ class SimpleRacerApp extends Component {
                 break;
             case 'play':
                 view = (
-                    <Text>
-                        This is a test for the play view
-                    </Text>
+                    <PlayView />
                 );
                 break;
             default:

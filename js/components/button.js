@@ -30,7 +30,8 @@ var styles = StyleSheet.create({
         borderLeftWidth: 1,
         borderRadius: 10,
         padding: 10,
-        width: 200
+        width: 200,
+        justifyContent: 'center'
     },
     text: {
         color: '#FFFFFF',
